@@ -1,10 +1,36 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
+import requests from '../utils/requests'
+import { Movie } from '../typings'
 
-const Home: NextPage = () => {
+interface Props {
+  netflixOriginals: Movie[]
+  trendingNow: Movie[]
+  topRated: Movie[]
+  actionMovies: Movie[]
+  comedyMovies: Movie[]
+  horrorMovies: Movie[]
+  romanceMovies: Movie[]
+  documentaries: Movie[]
+}
+
+const Home = ({
+  netflixOriginals,
+  trendingNow,
+  topRated,
+  actionMovies,
+  comedyMovies,
+  horrorMovies,
+  romanceMovies,
+  documentaries,
+
+}: Props) => {
+
+  // To Check JSON From API
+
+  console.log(trendingNow);
+
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 
     to-[#010511] lg:h-[140vh]">
@@ -55,8 +81,7 @@ export const getServerSideProps = async () => {
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
-      documentaries: documentaries.results,
-      products,
+      documentaries: documentaries.results
     },
   }
 }
