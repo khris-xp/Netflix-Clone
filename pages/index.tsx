@@ -23,13 +23,9 @@ const Home = ({
   comedyMovies,
   horrorMovies,
   romanceMovies,
-  documentaries,
+  documentaries
 
 }: Props) => {
-
-  // To Check JSON From API
-
-  console.log(trendingNow);
 
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 
@@ -41,8 +37,8 @@ const Home = ({
 
       <Header />
 
-      <main>
-        <Banner />
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
+        <Banner netflixOriginals={netflixOriginals} />
       </main>
     </div>
   )
